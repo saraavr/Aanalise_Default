@@ -1,7 +1,6 @@
 # Aanalise_Default
 ---
-title: "Análise de Inadimplência com Redes Neurais e Modelos Ensemble"
-output: html_document
+Análise de Inadimplência com Redes Neurais e Modelos Ensemble
 ---
 
 ```{r setup, include=FALSE}
