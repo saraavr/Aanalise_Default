@@ -41,7 +41,7 @@ ggplot(df, aes(x = factor(default_bin))) +
   labs(x = "Inadimplência (0 = Não, 1 = Sim)", y = "Frequência", title = "Distribuição da variável default_bin")
 ```
 ![Distribuição default](1.png)
-![Distribuição variáveis](2.png)
+
 
 > A base é fortemente desbalanceada: apenas cerca de 3% dos clientes são inadimplentes.
 
@@ -51,13 +51,14 @@ ggplot(df, aes(x = factor(default_bin))) +
 cor(df[, c("balance", "income", "default_bin")])
 pairs(df[, c("balance", "income", "default_bin")], main = "Relações entre variáveis")
 ```
+![Distribuição variáveis](2.png)
 
 > `balance` tem forte relação com inadimplência, enquanto `income` aparenta ter pouca influência.
 
 ### 2.3 Distribuição das Variáveis Numéricas
 
 ```{r}
-df_long <- pivot_longer(df, cols = c(balance, income), names_to = "variavel", values_to = "valor")
+df_long <- pivot_longer(df, cols = c(balance, income,student_bin,default_bin), names_to = "variavel", values_to = "valor")
 ggplot(df_long, aes(x = valor)) +
   geom_histogram(fill = "#008080", bins = 30) +
   facet_wrap(~ variavel, scales = "free") +
