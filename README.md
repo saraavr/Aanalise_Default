@@ -3,10 +3,6 @@
 Análise de Inadimplência com Redes Neurais e Modelos Ensemble
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
 ## 1. Carregando Pacotes e Dados
 
 ```{r}
@@ -44,6 +40,8 @@ ggplot(df, aes(x = factor(default_bin))) +
   geom_bar(fill = "#4682B4") +
   labs(x = "Inadimplência (0 = Não, 1 = Sim)", y = "Frequência", title = "Distribuição da variável default_bin")
 ```
+![Distribuição default](1.png)
+![Distribuição variáveis](2.png)
 
 > A base é fortemente desbalanceada: apenas cerca de 3% dos clientes são inadimplentes.
 
@@ -65,7 +63,7 @@ ggplot(df_long, aes(x = valor)) +
   facet_wrap(~ variavel, scales = "free") +
   labs(title = "Distribuição de Balance e Income")
 ```
-
+![Correlação](3.png)
 ---
 
 ## 3. Pré-processamento
@@ -122,7 +120,7 @@ ggplot(all_results, aes(x = hidden, y = mean_error, color = type)) +
   geom_line() + geom_point(size = 2) +
   labs(title = "Erro Médio por Número de Neurônios", x = "Neurônios na Camada Oculta", y = "Erro Médio")
 ```
-
+![Erro médio](4.png)
 ---
 
 ## 5. Comparação com Modelos Ensemble
